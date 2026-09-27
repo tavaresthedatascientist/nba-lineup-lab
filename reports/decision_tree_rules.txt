@@ -1,0 +1,22 @@
+|--- NET_SZN_DIFF <= -2.03
+|   |--- LU_PER_DIFF <= -2.28
+|   |   |--- LU_PER_DIFF <= -4.27
+|   |   |   |--- weights: [70.00, 1.00] class: 0
+|   |   |--- LU_PER_DIFF >  -4.27
+|   |   |   |--- weights: [193.00, 38.00] class: 0
+|   |--- LU_PER_DIFF >  -2.28
+|   |   |--- LU_TS_DIFF <= 3.29
+|   |   |   |--- weights: [417.00, 201.00] class: 0
+|   |   |--- LU_TS_DIFF >  3.29
+|   |   |   |--- weights: [13.00, 23.00] class: 1
+|--- NET_SZN_DIFF >  -2.03
+|   |--- NET_SZN_DIFF <= 4.29
+|   |   |--- LU_PER_DIFF <= 1.23
+|   |   |   |--- weights: [301.00, 285.00] class: 0
+|   |   |--- LU_PER_DIFF >  1.23
+|   |   |   |--- weights: [65.00, 140.00] class: 1
+|   |--- NET_SZN_DIFF >  4.29
+|   |   |--- LU_USG_DIFF <= 5.66
+|   |   |   |--- weights: [130.00, 282.00] class: 1
+|   |   |--- LU_USG_DIFF >  5.66
+|   |   |   |--- weights: [39.00, 258.00] class: 1

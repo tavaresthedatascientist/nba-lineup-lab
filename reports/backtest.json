@@ -1,0 +1,531 @@
+{
+ "rolling": {
+  "folds": [
+   {
+    "train_games": [
+     0,
+     5
+    ],
+    "test_games": [
+     5,
+     15
+    ],
+    "train_rows": 156,
+    "test_games_n": 150,
+    "decision_tree": {
+     "games": 150,
+     "accuracy": 0.7333333333333333,
+     "log_loss": 0.8527388787681526,
+     "brier": 0.2181556214477538
+    },
+    "random_forest": {
+     "games": 150,
+     "accuracy": 0.6533333333333333,
+     "log_loss": 0.6504672114319706,
+     "brier": 0.2281747171306919
+    },
+    "baselines": {
+     "home_team": 0.54,
+     "better_record": 0.6933333333333334,
+     "better_net_rating_l10": 0.7066666666666667
+    }
+   },
+   {
+    "train_games": [
+     10,
+     15
+    ],
+    "test_games": [
+     15,
+     25
+    ],
+    "train_rows": 150,
+    "test_games_n": 150,
+    "decision_tree": {
+     "games": 150,
+     "accuracy": 0.5933333333333334,
+     "log_loss": 0.9377803910168755,
+     "brier": 0.25823214480511686
+    },
+    "random_forest": {
+     "games": 150,
+     "accuracy": 0.6466666666666666,
+     "log_loss": 0.6562612233192684,
+     "brier": 0.22589867927535157
+    },
+    "baselines": {
+     "home_team": 0.5333333333333333,
+     "better_record": 0.6533333333333333,
+     "better_net_rating_l10": 0.7133333333333334
+    }
+   },
+   {
+    "train_games": [
+     20,
+     25
+    ],
+    "test_games": [
+     25,
+     35
+    ],
+    "train_rows": 146,
+    "test_games_n": 148,
+    "decision_tree": {
+     "games": 148,
+     "accuracy": 0.4527027027027027,
+     "log_loss": 0.9631733593082785,
+     "brier": 0.33670133635297744
+    },
+    "random_forest": {
+     "games": 148,
+     "accuracy": 0.5472972972972973,
+     "log_loss": 0.7148253049735139,
+     "brier": 0.25776082756740326
+    },
+    "baselines": {
+     "home_team": 0.5405405405405406,
+     "better_record": 0.5675675675675675,
+     "better_net_rating_l10": 0.5202702702702703
+    }
+   },
+   {
+    "train_games": [
+     30,
+     35
+    ],
+    "test_games": [
+     35,
+     45
+    ],
+    "train_rows": 150,
+    "test_games_n": 151,
+    "decision_tree": {
+     "games": 151,
+     "accuracy": 0.5894039735099338,
+     "log_loss": 0.7478792550936849,
+     "brier": 0.26126330944215426
+    },
+    "random_forest": {
+     "games": 151,
+     "accuracy": 0.609271523178808,
+     "log_loss": 0.6484040593601722,
+     "brier": 0.228139687064984
+    },
+    "baselines": {
+     "home_team": 0.5695364238410596,
+     "better_record": 0.6357615894039735,
+     "better_net_rating_l10": 0.609271523178808
+    }
+   },
+   {
+    "train_games": [
+     40,
+     45
+    ],
+    "test_games": [
+     45,
+     55
+    ],
+    "train_rows": 144,
+    "test_games_n": 151,
+    "decision_tree": {
+     "games": 151,
+     "accuracy": 0.6490066225165563,
+     "log_loss": 0.713014240915541,
+     "brier": 0.2440691553752266
+    },
+    "random_forest": {
+     "games": 151,
+     "accuracy": 0.6688741721854304,
+     "log_loss": 0.6542183408040446,
+     "brier": 0.22586186530983451
+    },
+    "baselines": {
+     "home_team": 0.5165562913907285,
+     "better_record": 0.6622516556291391,
+     "better_net_rating_l10": 0.6026490066225165
+    }
+   },
+   {
+    "train_games": [
+     50,
+     55
+    ],
+    "test_games": [
+     55,
+     65
+    ],
+    "train_rows": 148,
+    "test_games_n": 151,
+    "decision_tree": {
+     "games": 151,
+     "accuracy": 0.6622516556291391,
+     "log_loss": 0.7058440899468675,
+     "brier": 0.23071764968012107
+    },
+    "random_forest": {
+     "games": 151,
+     "accuracy": 0.6754966887417219,
+     "log_loss": 0.5916112813337521,
+     "brier": 0.20454655387854723
+    },
+    "baselines": {
+     "home_team": 0.5298013245033113,
+     "better_record": 0.7019867549668874,
+     "better_net_rating_l10": 0.7019867549668874
+    }
+   },
+   {
+    "train_games": [
+     60,
+     65
+    ],
+    "test_games": [
+     65,
+     75
+    ],
+    "train_rows": 150,
+    "test_games_n": 152,
+    "decision_tree": {
+     "games": 152,
+     "accuracy": 0.7302631578947368,
+     "log_loss": 0.5727418406946189,
+     "brier": 0.19334062394313573
+    },
+    "random_forest": {
+     "games": 152,
+     "accuracy": 0.75,
+     "log_loss": 0.4950263635520702,
+     "brier": 0.16119115460623426
+    },
+    "baselines": {
+     "home_team": 0.5986842105263158,
+     "better_record": 0.7697368421052632,
+     "better_net_rating_l10": 0.6907894736842105
+    }
+   },
+   {
+    "train_games": [
+     70,
+     75
+    ],
+    "test_games": [
+     75,
+     82
+    ],
+    "train_rows": 154,
+    "test_games_n": 97,
+    "decision_tree": {
+     "games": 97,
+     "accuracy": 0.8247422680412371,
+     "log_loss": 0.5400722674720453,
+     "brier": 0.13667343842831892
+    },
+    "random_forest": {
+     "games": 97,
+     "accuracy": 0.8350515463917526,
+     "log_loss": 0.43831564506458814,
+     "brier": 0.14319803490869543
+    },
+    "baselines": {
+     "home_team": 0.5773195876288659,
+     "better_record": 0.7525773195876289,
+     "better_net_rating_l10": 0.7628865979381443
+    }
+   }
+  ],
+  "pooled": {
+   "decision_tree": {
+    "games": 1150,
+    "accuracy": 0.6469565217391304,
+    "log_loss": 0.7632597329174956,
+    "brier": 0.23919880728191104
+   },
+   "random_forest": {
+    "games": 1150,
+    "accuracy": 0.6660869565217391,
+    "log_loss": 0.6135594096401209,
+    "brier": 0.21225360075776653
+   },
+   "baselines": {
+    "home_team": 0.5495652173913044,
+    "better_record": 0.6765217391304348,
+    "better_net_rating_l10": 0.6591304347826087
+   }
+  }
+ },
+ "expanding": {
+  "folds": [
+   {
+    "train_games": [
+     0,
+     5
+    ],
+    "test_games": [
+     5,
+     15
+    ],
+    "train_rows": 156,
+    "test_games_n": 150,
+    "decision_tree": {
+     "games": 150,
+     "accuracy": 0.7333333333333333,
+     "log_loss": 0.8527388787681526,
+     "brier": 0.2181556214477538
+    },
+    "random_forest": {
+     "games": 150,
+     "accuracy": 0.6533333333333333,
+     "log_loss": 0.6504672114319706,
+     "brier": 0.2281747171306919
+    },
+    "baselines": {
+     "home_team": 0.54,
+     "better_record": 0.6933333333333334,
+     "better_net_rating_l10": 0.7066666666666667
+    }
+   },
+   {
+    "train_games": [
+     0,
+     15
+    ],
+    "test_games": [
+     15,
+     25
+    ],
+    "train_rows": 456,
+    "test_games_n": 150,
+    "decision_tree": {
+     "games": 150,
+     "accuracy": 0.62,
+     "log_loss": 0.7264013986383068,
+     "brier": 0.24552417446145122
+    },
+    "random_forest": {
+     "games": 150,
+     "accuracy": 0.6733333333333333,
+     "log_loss": 0.620811685108159,
+     "brier": 0.21400783644299376
+    },
+    "baselines": {
+     "home_team": 0.5333333333333333,
+     "better_record": 0.6533333333333333,
+     "better_net_rating_l10": 0.7133333333333334
+    }
+   },
+   {
+    "train_games": [
+     0,
+     25
+    ],
+    "test_games": [
+     25,
+     35
+    ],
+    "train_rows": 756,
+    "test_games_n": 148,
+    "decision_tree": {
+     "games": 148,
+     "accuracy": 0.5067567567567568,
+     "log_loss": 0.7688694148385922,
+     "brier": 0.2832898906183406
+    },
+    "random_forest": {
+     "games": 148,
+     "accuracy": 0.5337837837837838,
+     "log_loss": 0.7241111711288941,
+     "brier": 0.2636091955311304
+    },
+    "baselines": {
+     "home_team": 0.5405405405405406,
+     "better_record": 0.5675675675675675,
+     "better_net_rating_l10": 0.5202702702702703
+    }
+   },
+   {
+    "train_games": [
+     0,
+     35
+    ],
+    "test_games": [
+     35,
+     45
+    ],
+    "train_rows": 1052,
+    "test_games_n": 151,
+    "decision_tree": {
+     "games": 151,
+     "accuracy": 0.6754966887417219,
+     "log_loss": 0.6335125404002131,
+     "brier": 0.22081112692910873
+    },
+    "random_forest": {
+     "games": 151,
+     "accuracy": 0.6754966887417219,
+     "log_loss": 0.641403914126968,
+     "brier": 0.22442144417906348
+    },
+    "baselines": {
+     "home_team": 0.5695364238410596,
+     "better_record": 0.6357615894039735,
+     "better_net_rating_l10": 0.609271523178808
+    }
+   },
+   {
+    "train_games": [
+     0,
+     45
+    ],
+    "test_games": [
+     45,
+     55
+    ],
+    "train_rows": 1354,
+    "test_games_n": 151,
+    "decision_tree": {
+     "games": 151,
+     "accuracy": 0.6490066225165563,
+     "log_loss": 0.6169991068492309,
+     "brier": 0.21335098587946547
+    },
+    "random_forest": {
+     "games": 151,
+     "accuracy": 0.6754966887417219,
+     "log_loss": 0.6123223201433705,
+     "brier": 0.21134583439895674
+    },
+    "baselines": {
+     "home_team": 0.5165562913907285,
+     "better_record": 0.6622516556291391,
+     "better_net_rating_l10": 0.6026490066225165
+    }
+   },
+   {
+    "train_games": [
+     0,
+     55
+    ],
+    "test_games": [
+     55,
+     65
+    ],
+    "train_rows": 1656,
+    "test_games_n": 151,
+    "decision_tree": {
+     "games": 151,
+     "accuracy": 0.7218543046357616,
+     "log_loss": 0.5614823742687575,
+     "brier": 0.18983477486637743
+    },
+    "random_forest": {
+     "games": 151,
+     "accuracy": 0.7152317880794702,
+     "log_loss": 0.5636998420895075,
+     "brier": 0.18989013844046843
+    },
+    "baselines": {
+     "home_team": 0.5298013245033113,
+     "better_record": 0.7019867549668874,
+     "better_net_rating_l10": 0.7019867549668874
+    }
+   },
+   {
+    "train_games": [
+     0,
+     65
+    ],
+    "test_games": [
+     65,
+     75
+    ],
+    "train_rows": 1958,
+    "test_games_n": 152,
+    "decision_tree": {
+     "games": 152,
+     "accuracy": 0.7763157894736842,
+     "log_loss": 0.49779253035948534,
+     "brier": 0.16425053834037087
+    },
+    "random_forest": {
+     "games": 152,
+     "accuracy": 0.756578947368421,
+     "log_loss": 0.49585629215683164,
+     "brier": 0.16084979202297744
+    },
+    "baselines": {
+     "home_team": 0.5986842105263158,
+     "better_record": 0.7697368421052632,
+     "better_net_rating_l10": 0.6907894736842105
+    }
+   },
+   {
+    "train_games": [
+     0,
+     75
+    ],
+    "test_games": [
+     75,
+     82
+    ],
+    "train_rows": 2262,
+    "test_games_n": 97,
+    "decision_tree": {
+     "games": 97,
+     "accuracy": 0.7525773195876289,
+     "log_loss": 0.49218954816716093,
+     "brier": 0.16363478842766932
+    },
+    "random_forest": {
+     "games": 97,
+     "accuracy": 0.8041237113402062,
+     "log_loss": 0.48487121031363595,
+     "brier": 0.15751071347425813
+    },
+    "baselines": {
+     "home_team": 0.5773195876288659,
+     "better_record": 0.7525773195876289,
+     "better_net_rating_l10": 0.7628865979381443
+    }
+   }
+  ],
+  "pooled": {
+   "decision_tree": {
+    "games": 1150,
+    "accuracy": 0.6765217391304348,
+    "log_loss": 0.6501579678636393,
+    "brier": 0.21438353003655058
+   },
+   "random_forest": {
+    "games": 1150,
+    "accuracy": 0.6808695652173913,
+    "log_loss": 0.6040819905623422,
+    "brier": 0.20829871438169353
+   },
+   "baselines": {
+    "home_team": 0.5495652173913044,
+    "better_record": 0.6765217391304348,
+    "better_net_rating_l10": 0.6591304347826087
+   }
+  }
+ },
+ "playoffs": {
+  "decision_tree": {
+   "games": 91,
+   "accuracy": 0.5934065934065934,
+   "log_loss": 0.655064140452807,
+   "brier": 0.23178337083695774
+  },
+  "random_forest": {
+   "games": 91,
+   "accuracy": 0.6153846153846154,
+   "log_loss": 0.6494660097721777,
+   "brier": 0.2302363929221725
+  },
+  "baselines": {
+   "home_team": 0.5604395604395604,
+   "better_record": 0.6153846153846154,
+   "better_net_rating_l10": 0.6043956043956044
+  }
+ }
+}
