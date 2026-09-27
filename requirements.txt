@@ -1,0 +1,6 @@
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+pytest>=7
+# optional, only for `python -m lineup_lab fetch` (run on your own machine):
+# nba_api>=1.4
