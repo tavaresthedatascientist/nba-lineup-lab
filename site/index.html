@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lineup Lab</title>
+<meta name="description" content="Pick NBA winners against a decision-tree model, and build the starting five that gives your team the best chance. Built on 2025-26 data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <svg class="court" viewBox="0 0 470 250" aria-hidden="true">
+    <rect x="1" y="1" width="468" height="248" fill="none"/>
+    <line x1="1" y1="125" x2="469" y2="125"/>
+    <circle cx="235" cy="125" r="30" fill="none"/>
+    <rect x="175" y="1" width="120" height="95" fill="none"/>
+    <circle cx="235" cy="96" r="30" fill="none"/>
+    <path d="M30 1 V70 A205 205 0 0 0 440 70 V1" fill="none"/>
+  </svg>
+  <div class="top-inner">
+    <div class="brand">
+      <h1>Lineup Lab</h1>
+      <p class="tag">2025-26 NBA · decision-tree lineup model</p>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" id="tab-play" aria-selected="true" data-tab="play">Beat the Model</button>
+      <button role="tab" id="tab-lab" aria-selected="false" data-tab="lab">Lineup Builder</button>
+      <button role="tab" id="tab-model" aria-selected="false" data-tab="model">How it works</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p id="loading" class="loading">Loading the 2025-26 season…</p>
+
+  <!-- ============ PLAY ============ -->
+  <section id="panel-play" class="panel" data-panel="play" hidden>
+    <div class="scorebar">
+      <div class="score-cell"><span class="lbl">You</span><span class="num" id="score-you">0</span></div>
+      <div class="score-cell"><span class="lbl">Model</span><span class="num" id="score-model">0</span></div>
+      <div class="score-cell"><span class="lbl">Game</span><span class="num" id="round">1<small>/10</small></span></div>
+      <div class="score-controls">
+        <label for="play-filter">Games with</label>
+        <select id="play-filter"></select>
+        <button class="ghost" id="play-restart">New set</button>
+      </div>
+    </div>
+
+    <article class="matchup" id="matchup">
+      <div class="m-meta" id="m-meta"></div>
+      <div class="m-grid">
+        <div class="m-team" id="m-away"></div>
+        <div class="m-at">@</div>
+        <div class="m-team" id="m-home"></div>
+      </div>
+      <div class="m-context" id="m-context"></div>
+      <div class="pick-row" id="pick-row"></div>
+      <div class="reveal" id="reveal" hidden></div>
+    </article>
+
+    <div class="final" id="final" hidden></div>
+    <p class="fine">Every game is a real 2025-26 game. The model's pick is <strong>out-of-sample</strong>: it comes from a model trained only on games played before that date, using starting fives, player metrics and team context available before tip-off.</p>
+  </section>
+
+  <!-- ============ LAB ============ -->
+  <section id="panel-lab" class="panel" data-panel="lab" hidden>
+    <div class="lab-controls">
+      <div class="field"><label for="lab-team">Your team</label><select id="lab-team"></select></div>
+      <div class="field"><label for="lab-opp">Opponent</label><select id="lab-opp"></select></div>
+      <div class="field">
+        <span class="lbl-inline" id="venue-lbl">Venue</span>
+        <div class="seg" role="radiogroup" aria-labelledby="venue-lbl">
+          <button role="radio" aria-checked="true" data-venue="home" id="venue-home">Home</button>
+          <button role="radio" aria-checked="false" data-venue="away" id="venue-away">Away</button>
+          <button role="radio" aria-checked="false" data-venue="neutral" id="venue-neutral">Neutral</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prob-card">
+      <div class="prob-main">
+        <span class="lbl">Win probability</span>
+        <span class="prob-num" id="lab-prob">–</span>
+        <span class="prob-delta" id="lab-delta"></span>
+      </div>
+      <div class="prob-bar"><div id="lab-bar"></div></div>
+      <div class="prob-actions">
+        <button class="primary" id="lab-optimize">Find the best five</button>
+        <button class="ghost" id="lab-reset">Use most-used five</button>
+      </div>
+      <ul class="warn" id="lab-warn"></ul>
+    </div>
+
+    <div class="lab-grid">
+      <div class="lab-col">
+        <h2 class="col-h" id="lab-you-h">Your starting five</h2>
+        <ol class="five" id="lab-five"></ol>
+        <h3 class="sub-h">Roster <span class="hint">Tap a player to start him · mark him out for tonight</span></h3>
+        <ul class="roster" id="lab-roster"></ul>
+      </div>
+      <div class="lab-col">
+        <h2 class="col-h" id="lab-opp-h">Opponent five</h2>
+        <ol class="five" id="lab-opp-five"></ol>
+        <h3 class="sub-h">Opponent roster <span class="hint">Change who they start</span></h3>
+        <ul class="roster" id="lab-opp-roster"></ul>
+      </div>
+    </div>
+
+    <div class="lab-grid">
+      <div class="lab-col">
+        <h2 class="col-h">Top lineups</h2>
+        <ol class="best" id="lab-best"><li class="muted">Press “Find the best five”.</li></ol>
+      </div>
+      <div class="lab-col">
+        <h2 class="col-h">Matchups</h2>
+        <div class="tbl-wrap"><table class="tbl" id="lab-matchups"></table></div>
+        <p class="fine">Likely primary defender = same positional slot on the other five (guards to bigs). Edge = your player's true shooting vs. that defender in past meetings, relative to his own average, shrunk toward zero for small samples.</p>
+      </div>
+    </div>
+
+    <div class="lab-col">
+      <h2 class="col-h">What the model sees</h2>
+      <div class="tbl-wrap"><table class="tbl" id="lab-features"></table></div>
+    </div>
+  </section>
+
+  <!-- ============ MODEL ============ -->
+  <section id="panel-model" class="panel" data-panel="model" hidden>
+    <div class="prose">
+      <h2>How it works</h2>
+      <p>Each game becomes one row per team: the <strong>difference</strong> between its starting five and the opponent's on advanced metrics, plus team context. Every number is built only from games played before tip-off.</p>
+    </div>
+    <div class="cards3" id="model-summary"></div>
+    <div class="chart-card">
+      <h3>Accuracy by 10-game test block</h3>
+      <p class="fine">Train on 5 games per team, predict the next 10, slide forward. Bars are the random forest; the line is “pick the team with the better record.”</p>
+      <div id="fold-chart" class="chart"></div>
+    </div>
+    <div class="two">
+      <div class="chart-card">
+        <h3>What drives predictions</h3>
+        <p class="fine">Random-forest feature importance (full regular season).</p>
+        <div id="imp-chart"></div>
+      </div>
+      <div class="chart-card">
+        <h3>The single decision tree</h3>
+        <p class="fine">Depth-3 tree trained on the full regular season. Each leaf shows how often teams in that situation won.</p>
+        <div id="tree" class="tree"></div>
+      </div>
+    </div>
+    <div class="prose" id="model-notes"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Built by Tavares Martin · <a href="https://github.com/tavaresthedatascientist/nba-lineup-lab">Source on GitHub</a> · Data: 2025-26 NBA box scores via nba_api. Not affiliated with the NBA or any team.</p>
+</footer>
+
+<script src="js/model.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
